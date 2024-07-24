@@ -6,7 +6,7 @@ export async function POST(req) {
   const { nome, email, assunto, mensagem } = await req.json();
 
   const msg = {
-    to: process.env.SENDGRID_EMAIL_TO,
+    to: 'henriquetg.dev@gmail.com',
     from: process.env.SENDGRID_EMAIL_FROM, // Use um endereço de email verificado
     subject: assunto,
     text: `Nome: ${nome}\nE-mail: ${email}\nMensagem: ${mensagem}`,
