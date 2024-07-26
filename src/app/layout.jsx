@@ -11,24 +11,33 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const link =
+    'transform hover:scale-125 transition-transform duration-300 text-xs lg:text-lg';
   return (
     <html lang="pt-BR">
       <body className={poppins.className}>
-        <div className="flex min-h-screen flex-col items-center justify-between max-w-5xl mx-auto">
-          <header className="flex items-center justify-between w-full py-10">
-            {/* <span className="text-2xl font-black cursor-default">INSIGHTS</span> */}
-            <Image src={'/HTG.png'} width={150} height={150} />
+        <div className="flex flex-col min-h-screen">
+          <header className="flex items-center justify-between w-full py-10 bg-bkg-dark-green text-white  flex-col lg:flex-row lg:p-20 lg:mt-10">
+            <Image src={'/HTG.png'} width={150} height={150} alt="Logo" />
             <nav className="flex gap-10">
-              <Link href="/">início</Link>
-              <Link href="/certificados">Certificados</Link>
-              <Link href="/projetos">Projetos</Link>
-              <Link href="/contato">Contato</Link>
+              <Link href="/" className={link}>
+                Início
+              </Link>
+              <Link href="/certificados" className={link}>
+                Certificados
+              </Link>
+              <Link href="/projetos" className={link}>
+                Projetos
+              </Link>
+              <Link href="/contato" className={link}>
+                Contato
+              </Link>
             </nav>
           </header>
 
-          {children}
+          <main className="flex-grow w-full">{children}</main>
 
-          <footer className="p-10 flex flex-col items-center">
+          <footer className="flex-shrink-0 px-10 flex flex-col items-center bg-slate-100 w-full h-15">
             <p className="flex items-center space-x-4">
               <span>Desenvolvido por Henrique Tavares Gomes</span>
               <a
